@@ -5,7 +5,7 @@ import { PROVIDER_KEYS } from '../src/lib/providers.js';
 import { seedanceProviderError, falSeedanceInput, openRouterSeedanceInput } from '../src/lib/video/seedanceProviders.js';
 import { isReferenceUrl } from './_lib/providerMedia.js';
 import { prepareTaskRegistry, registerProviderTask, requireProviderTask } from './_lib/providerTasks.js';
-import evolinkGenerate from './evolink-generate.js';
+import evolinkGenerate from './_evolink-generate.js';
 import { signedMediaUrl } from './_lib/imageStorage.js';
 
 export const config = { maxDuration: 300 };

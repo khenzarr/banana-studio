@@ -7,7 +7,7 @@ import { build } from 'esbuild';
 const tempFile = fileURLToPath(new URL('./.temp-youtube.mjs', import.meta.url));
 try {
   await build({
-    entryPoints: [fileURLToPath(new URL('../api/youtube.ts', import.meta.url))],
+    entryPoints: [fileURLToPath(new URL('../api/_youtube.ts', import.meta.url))],
     bundle: true,
     outfile: tempFile,
     format: 'esm',

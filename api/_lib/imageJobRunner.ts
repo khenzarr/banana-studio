@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { executeOpenAIImage } from '../openai-image-generate.js';
+import { executeOpenAIImage } from '../_openai-image-generate.js';
 import { refreshImageJobReferences } from './imageJobPayload.js';
 import { readStoredImage } from './imageStorage.js';
 import { MediaAccessError } from '../../src/lib/references/mediaAccess.js';
