@@ -17,6 +17,8 @@ desktop/*
 !desktop/shared/
 desktop/shared/*
 !desktop/shared/nativeBridge.ts
+!desktop/shared/browserClient.ts
+!desktop/shared/query.mjs
 .build/
 .local-data/
 .local-runtime/
