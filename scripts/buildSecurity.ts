@@ -45,7 +45,12 @@ export function clientSecretGuard(env: Record<string, string | undefined>): Plug
           check(path.relative(outputDirectory, file), (await readFile(file)).toString());
         }
       };
-      await scan(outputDirectory);
+      try {
+        await scan(outputDirectory);
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') return;
+        throw error;
+      }
     },
   };
 }
