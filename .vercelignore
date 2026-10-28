@@ -13,7 +13,10 @@ __pycache__/
 *.p12
 *.pfx
 
-desktop/
+desktop/*
+!desktop/shared/
+desktop/shared/*
+!desktop/shared/nativeBridge.ts
 .build/
 .local-data/
 .local-runtime/
