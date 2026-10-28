@@ -4,7 +4,7 @@
       "experimentalTriggers": [{ "type": "queue/v2beta", "topic": "banana-image-jobs", "retryAfterSeconds": 60, "maxDeliveries": 10000 }]
     }
   },
-  "crons": [{ "path": "/api/image-job-sweep", "schedule": "* * * * *" }],
+  "crons": [{ "path": "/api/image-job-sweep", "schedule": "0 3 * * *" }],
   "headers": [
     {
       "source": "/share.html",
