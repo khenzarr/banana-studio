@@ -9,6 +9,7 @@ import { createMediaUploader } from './uploads.mjs';
 import { runImageJob, ImageJobWait } from '../../api/_lib/imageJobRunner.ts';
 import openaiText from '../../api/_openai-text-generate.ts';
 import openrouterText from '../../api/_openrouter-text-generate.ts';
+import agentrouterText from '../../api/_agentrouter-text-generate.ts';
 import geminiGenerate from '../../api/_gemini-generate.ts';
 import geminiStatus from '../../api/_gemini-status.ts';
 import openaiImage from '../../api/_openai-image-generate.ts';
@@ -26,7 +27,7 @@ import seedanceVideo from '../../api/_seedance-video.ts';
 import { chooseProvider } from '../../api/_lib/providerConfiguration.ts';
 import { seedanceProviderError } from '../../src/lib/video/seedanceProviders.ts';
 
-const KEY_NAMES=new Set(['OPENAI_API_KEY','OPENROUTER_API_KEY','GEMINI_API_KEY','YOUTUBE_API_KEY','FAL_KEY','EVOLINK_API_KEY']);
+const KEY_NAMES=new Set(['OPENAI_API_KEY','OPENROUTER_API_KEY','AGENTROUTER_API_KEY','GEMINI_API_KEY','YOUTUBE_API_KEY','FAL_KEY','EVOLINK_API_KEY']);
 const io=readline.createInterface({input:process.stdin,crlfDelay:Infinity});
 const first=await new Promise(resolve=>io.once('line',resolve));
 let launch;try{launch=JSON.parse(first);}catch{process.exit(1);}
@@ -48,7 +49,7 @@ const wake=()=>{
   }
 };
 setQueueWake(wake);
-const routes={'openai-text-generate':openaiText,'openrouter-text-generate':openrouterText,'gemini-generate':geminiGenerate,'gemini-status':geminiStatus,'openai-image-generate':openaiImage,'openai-image-enqueue':openaiEnqueue,'openai-image-recover':openaiRecover,'fal-image-generate':falImage,'fal-status':falStatus,'fal-h3-video':falVideo,'fal-video-scale':falScale,'evolink-generate':evolinkGenerate,'evolink-status':evolinkStatus,'youtube':youtube,'youtube-status':youtubeStatus};
+const routes={'openai-text-generate':openaiText,'openrouter-text-generate':openrouterText,'agentrouter-text-generate':agentrouterText,'gemini-generate':geminiGenerate,'gemini-status':geminiStatus,'openai-image-generate':openaiImage,'openai-image-enqueue':openaiEnqueue,'openai-image-recover':openaiRecover,'fal-image-generate':falImage,'fal-status':falStatus,'fal-h3-video':falVideo,'fal-video-scale':falScale,'evolink-generate':evolinkGenerate,'evolink-status':evolinkStatus,'youtube':youtube,'youtube-status':youtubeStatus};
 const prepareMedia=createMediaUploader(workspace);
 routes['seedance-video']=async(req,res)=>{
  if(req.method==='POST'){

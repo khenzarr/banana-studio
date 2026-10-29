@@ -19,7 +19,8 @@ Kabul edilen görsel işi, sayfa yenilense veya uygulama yeniden açılsa da sa�
 | GPT Image 2.5 | OpenAI → OpenRouter → fal.ai | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `FAL_KEY` |
 | Nano Banana Pro / 2.1 | fal.ai → Google Gemini → OpenRouter | `FAL_KEY` / `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Opus 5.5 — varsayılan yaratıcı model, Medium | OpenRouter | `OPENROUTER_API_KEY` |
-| GPT-6.1 Sol — Enhance, Brainstorm, varyasyon | OpenAI → OpenRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` |
+| GPT-5.6 Sol / GPT-6 Astra — Enhance, Brainstorm, varyasyon | AgentRouter | `AGENTROUTER_API_KEY` |
+| GPT-6.1 Sol — Enhance, Brainstorm, varyasyon | OpenAI → OpenRouter → AgentRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `AGENTROUTER_API_KEY` |
 | Gemini 3.8 Flash — metin ve video analizi | Google Gemini → OpenRouter | `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Seedance 2.0 / 2.5 | EvoLink → fal.ai → OpenRouter | `EVOLINK_API_KEY` / `FAL_KEY` / `OPENROUTER_API_KEY` |
 | H3 Max — Text/Image/Reference to Video, Extend, Lip Sync, Recast | fal.ai | `FAL_KEY` |
@@ -28,7 +29,7 @@ Kabul edilen görsel işi, sayfa yenilense veya uygulama yeniden açılsa da sa�
 
 Üç görsel sağlayıcısı da referanslı yeni üretimi destekler. Referans eklemek kendiliğinden korumalı editi açmaz: bunun için **Edit area** seç. Son seçili alan kaynak görsele yerleştirilir; dışındaki pikseller sağlayıcıdan bağımsız olarak korunur. Nano'nun çözünürlük katmanlarından gelen çıktı, oranı kaynakla uyuşuyorsa birleştirmeden önce kaynak boyutuna ölçeklenebilir; farklı oran reddedilir. Sağlayıcının referans görsel kabul eden API adı “edit” olabilir; bu, uygulamada otomatik alan editi anlamına gelmez.
 
-Düşünme seviyesi AI settings'ten seçilir. Yalnızca fal.ai anahtarı Enhance/Brainstorm açmaz; artık desteklenmeyen Any LLM bağlantısını kullanmıyoruz. Anthropic anahtarı OpenRouter anahtarı değildir. Anahtarın model erişimi ve API bakiyesi bulunmalıdır.
+Düşünme seviyesi AI settings'ten seçilir. AgentRouter, OpenAI uyumlu Chat Completions bağlantısıyla yalnızca yukarıdaki üç GPT metin modeline bağlanır; görsel veya video üretim seçeneği olarak gösterilmez. Yalnızca fal.ai anahtarı Enhance/Brainstorm açmaz; artık desteklenmeyen Any LLM bağlantısını kullanmıyoruz. Anthropic anahtarı OpenRouter anahtarı değildir. Anahtarın model erişimi ve API bakiyesi bulunmalıdır.
 
 ## Video farkları
 
@@ -57,6 +58,7 @@ Sağlayıcıda hesap aç, anahtar panelinden yeni anahtar oluştur ve Mac veya W
 | --- | --- | --- |
 | OpenAI | [API anahtarları](https://platform.openai.com/api-keys) | [OpenAI API başlangıç rehberi](https://developers.openai.com/api/docs/quickstart) |
 | OpenRouter | [API anahtarları](https://openrouter.ai/settings/keys) | [Başlangıç rehberi](https://openrouter.ai/docs/quickstart) |
+| AgentRouter | [Portal](https://co.agentrouter.org/portal) | [OpenAI uyumlu rehber](https://co.agentrouter.org/portal/guide) |
 | Google Gemini | [Google AI Studio](https://aistudio.google.com/apikey) | [Gemini API anahtarları](https://ai.google.dev/gemini-api/docs/api-key) |
 | fal.ai | [Anahtar paneli](https://fal.ai/dashboard/keys) | [fal başlangıç rehberi](https://fal.ai/docs/documentation/quickstart) |
 | EvoLink | [EvoLink hesabı](https://evolink.ai) | [API dokümanları](https://docs.evolink.ai) |
@@ -72,6 +74,7 @@ YouTube için kendi Google Cloud projeni oluştur/seç, **YouTube Data API v3** 
 | Promptu kendim yazıp görsel/video üretmek | fal.ai; GPT/Nano, Seedance veya H3 Max; metin anahtarı gerekmez |
 | Nano görsel + Gemini Enhance/Brainstorm | Gemini; metin modeli olarak Gemini 3.8 Flash seç |
 | Doğrudan GPT görsel + GPT metin | OpenAI; GPT Image 2.5 + GPT-6.1 Sol |
+| AgentRouter GPT metin modelleri | AgentRouter; GPT-5.6 Sol, GPT-6 Astra veya GPT-6.1 Sol seç |
 | YouTube analizi ve yeni kapak fikirleri | OpenRouter + YouTube Data API; desteklenen görsel bağlantısını veya ek sağlayıcını kullan |
 | Mevcut ayrı servisli kurulum | Anahtarların kalabilir; Auto mevcut ana sağlayıcı varsa onu seçer, tercihini ayrıca sabitleyebilirsin |
 

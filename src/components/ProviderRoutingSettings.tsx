@@ -6,7 +6,7 @@ import { Dropdown } from './ControlDropdown';
 const EVENT = 'banana-provider-routes-changed';
 const MODELS: Record<string,string> = {
   'gpt-image-2.5-sunburst':'GPT Image 2.5', 'gemini-3-pro-image-preview':'Nano Banana Pro', 'gemini-nano-banana-2.1':'Nano Banana 2.1',
-  'anthropic/claude-opus-5.5':'Claude Opus 5.5', 'gpt-6.1-sol':'GPT-6.1 Sol', 'gemini-3.8-flash':'Gemini 3.8 Flash · text / video analysis',
+  'anthropic/claude-opus-5.5':'Claude Opus 5.5', 'gpt-5.6-sol':'GPT-5.6 Sol', 'gpt-6-astra':'GPT-6 Astra', 'gpt-6.1-sol':'GPT-6.1 Sol', 'gemini-3.8-flash':'Gemini 3.8 Flash · text / video analysis',
   'seedance-2.0':'Seedance 2.0', 'seedance-2.5':'Seedance 2.5', 'minimax-h3':'MiniMax H3 Max',
 };
 export function useProviderRoute(model: string) {
@@ -55,6 +55,6 @@ export function ProviderRoutingSettings() {
     <div><h3 id="provider-routing-title" className="font-semibold">Provider routing</h3>
       <p className="mt-2 text-xs leading-relaxed text-gray-400">Add only the keys you need. Auto uses the first configured provider shown for each model. A running request keeps its provider and is never resubmitted to a different service. These route preferences are saved on this device.</p></div>
     {Object.keys(MODELS).map(model => <div key={model}><p className="mb-1.5 text-sm text-gray-200">{MODELS[model]}</p><ProviderRouteControl model={model} showError={false} /></div>)}
-    <p className="text-xs leading-relaxed text-gray-500">fal.ai covers image/video models; Enhance and Brainstorm require OpenRouter, OpenAI or Gemini. YouTube lookup uses a separate YouTube Data API key. H3 Max requires fal.ai. Seedance 2.5 Relaxed is an EvoLink option; other routes use standard Seedance 2.5.</p>
+    <p className="text-xs leading-relaxed text-gray-500">AgentRouter is available only for its supported GPT text models. fal.ai covers image/video models; Enhance and Brainstorm require a configured text provider. YouTube lookup uses a separate YouTube Data API key. H3 Max requires fal.ai. Seedance 2.5 Relaxed is an EvoLink option; other routes use standard Seedance 2.5.</p>
   </section>;
 }

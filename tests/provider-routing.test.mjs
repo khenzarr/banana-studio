@@ -17,7 +17,7 @@ import { createMediaUploader } from '../desktop/server/uploads.mjs';
 
 test('every key combination selects only a configured route for the same model',()=>{
   const providers=Object.keys(PROVIDER_KEYS);
-  for(let mask=0;mask<32;mask++){
+  for(let mask=0;mask<(1<<providers.length);mask++){
     const available=Object.fromEntries(providers.map((provider,index)=>[provider,!!(mask&(1<<index))]));
     for(const [model,routes] of Object.entries(MODEL_ROUTES)){
       const expected=routes.find(provider=>available[provider]);
@@ -31,6 +31,14 @@ test('every key combination selects only a configured route for the same model',
   }
   assert.throws(()=>resolveProvider('__proto__','auto',{fal:true}),/Unsupported/);
   assert.throws(()=>resolveProvider('anthropic/claude-opus-5.5','fal',{fal:true,openrouter:true}));
+});
+test('AgentRouter is limited to the supported GPT text models',()=>{
+  assert.deepEqual(MODEL_ROUTES['gpt-5.6-sol'],['agentrouter']);
+  assert.deepEqual(MODEL_ROUTES['gpt-6-astra'],['agentrouter']);
+  assert.ok(MODEL_ROUTES['gpt-6.1-sol'].includes('agentrouter'));
+  for(const model of ['gpt-image-2.5-sunburst','gemini-3-pro-image-preview','gemini-nano-banana-2.1','seedance-2.0','seedance-2.5','minimax-h3']) {
+    assert.ok(!MODEL_ROUTES[model].includes('agentrouter'), model);
+  }
 });
 const request=(extra={})=>({videoModel:'seedance-2.5',mode:'image_to_video',prompt:'Move from @IMAGE_1 to @IMAGE_2.',duration:8,quality:'720p',aspectRatio:'adaptive',generateAudio:true,imageUrls:['https://example.invalid/first.png','https://example.invalid/last.png'],...extra});
 test('first and last frames remain distinct in both video providers; reference mode remains separate',()=>{

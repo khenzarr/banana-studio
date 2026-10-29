@@ -1,4 +1,4 @@
-import { DEFAULT_TEXT_MODEL, TEXT_MODEL_OPTIONS, type TextModelId } from '../../types';
+import { DEFAULT_TEXT_MODEL, TEXT_MODEL_OPTIONS, type TextModelId } from '../../types.js';
 import { DEFAULT_OPENAI_REASONING, isOpenAIReasoningEffort, type OpenAIReasoningEffort } from './openaiText.js';
 import { DEFAULT_OPENROUTER_REASONING, OPENROUTER_TEXT_MODEL } from './openrouterText.js';
 
@@ -8,6 +8,8 @@ export const GEMINI_THINKING_LEVELS = ['LOW', 'MEDIUM', 'HIGH'] as const;
 export type GeminiThinkingLevel = typeof GEMINI_THINKING_LEVELS[number];
 export const DEFAULT_GEMINI_THINKING: GeminiThinkingLevel = 'MEDIUM';
 export type TextModelPreferences = { model: TextModelId; thinkingLevel: GeminiThinkingLevel; reasoningEffort: OpenAIReasoningEffort };
+const REASONING_TEXT_MODELS = new Set(['anthropic/claude-opus-5.5', 'gpt-5.6-sol', 'gpt-6-astra', 'gpt-6.1-sol']);
+export const isReasoningTextModel = (model: string): boolean => REASONING_TEXT_MODELS.has(model);
 const defaultPreferences = (): TextModelPreferences => ({ model: DEFAULT_TEXT_MODEL, thinkingLevel: DEFAULT_GEMINI_THINKING, reasoningEffort: DEFAULT_OPENROUTER_REASONING });
 let accountPreferences: TextModelPreferences | null = null;
 let preferenceLoader: (() => Promise<TextModelPreferences>) | null = null;

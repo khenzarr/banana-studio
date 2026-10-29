@@ -19,7 +19,8 @@ Once accepted, an image job keeps its provider across reloads and app restarts. 
 | GPT Image 2.5 | OpenAI → OpenRouter → fal.ai | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `FAL_KEY` |
 | Nano Banana Pro / 2.1 | fal.ai → Google Gemini → OpenRouter | `FAL_KEY` / `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Opus 5.5 — default creative model, Medium | OpenRouter | `OPENROUTER_API_KEY` |
-| GPT-6.1 Sol — Enhance, Brainstorm, variations | OpenAI → OpenRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` |
+| GPT-5.6 Sol / GPT-6 Astra — Enhance, Brainstorm, variations | AgentRouter | `AGENTROUTER_API_KEY` |
+| GPT-6.1 Sol — Enhance, Brainstorm, variations | OpenAI → OpenRouter → AgentRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `AGENTROUTER_API_KEY` |
 | Gemini 3.8 Flash — text and footage analysis | Google Gemini → OpenRouter | `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Seedance 2.0 / 2.5 | EvoLink → fal.ai → OpenRouter | `EVOLINK_API_KEY` / `FAL_KEY` / `OPENROUTER_API_KEY` |
 | H3 Max — Text/Image/Reference to Video, Extend, Lip Sync, Recast | fal.ai | `FAL_KEY` |
@@ -28,7 +29,7 @@ Once accepted, an image job keeps its provider across reloads and app restarts. 
 
 All three image providers support reference-based generation. Uploading references does not enable protected editing automatically: explicitly select **Edit area** for that. The final selected area is composited onto the source; outside pixels stay original regardless of provider. Tier-based Nano outputs may be resized to the source canvas before compositing, only when their proportions match. A different canvas ratio is rejected. A provider's reference-image API may be named “edit”; the app's reference-generation prompt does not carry an area edit's source-preservation instructions.
 
-Thinking/reasoning remains in AI settings. Choosing fal.ai alone does not enable Enhance or Brainstorm: fal's deprecated Any LLM endpoint is not used. An Anthropic key is not an OpenRouter key. A saved key still needs model access and sufficient API credit.
+Thinking/reasoning remains in AI settings. AgentRouter is connected through its OpenAI-compatible Chat Completions endpoint and is intentionally limited to the three GPT text models above; it is not offered for image or video generation. Choosing fal.ai alone does not enable Enhance or Brainstorm: fal's deprecated Any LLM endpoint is not used. An Anthropic key is not an OpenRouter key. A saved key still needs model access and sufficient API credit.
 
 ## Video differences
 
@@ -57,6 +58,7 @@ Create an account with the provider, open its key dashboard, create a key and co
 | --- | --- | --- |
 | OpenAI | [API keys](https://platform.openai.com/api-keys) | [OpenAI API quickstart](https://developers.openai.com/api/docs/quickstart) |
 | OpenRouter | [API keys](https://openrouter.ai/settings/keys) | [Quickstart](https://openrouter.ai/docs/quickstart) |
+| AgentRouter | [Portal](https://co.agentrouter.org/portal) | [OpenAI-compatible guide](https://co.agentrouter.org/portal/guide) |
 | Google Gemini | [Google AI Studio](https://aistudio.google.com/apikey) | [Gemini API keys](https://ai.google.dev/gemini-api/docs/api-key) |
 | fal.ai | [Key dashboard](https://fal.ai/dashboard/keys) | [fal quickstart](https://fal.ai/docs/documentation/quickstart) |
 | EvoLink | [EvoLink account](https://evolink.ai) | [API documentation](https://docs.evolink.ai) |
@@ -72,6 +74,7 @@ For YouTube, create/select your own Google Cloud project, enable **YouTube Data 
 | Only images and video, writing prompts yourself | fal.ai; GPT Image / Nano, Seedance or H3 Max; no text key needed |
 | Nano images + Gemini Enhance / Brainstorm | Gemini key; select Gemini 3.8 Flash as the text model |
 | Direct GPT images + GPT text | OpenAI key; GPT Image 2.5 + GPT-6.1 Sol |
+| AgentRouter GPT text models | AgentRouter key; choose GPT-5.6 Sol, GPT-6 Astra or GPT-6.1 Sol |
 | YouTube analysis + new thumbnail concepts | OpenRouter + YouTube Data API; use supported image routes, or add your preferred image provider |
 | Existing direct-provider setup | Keep your keys; Auto preserves the current primary route when configured, or pin your preference |
 

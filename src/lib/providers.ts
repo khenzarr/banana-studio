@@ -1,19 +1,21 @@
 /** Application routes, verified against the providers' catalogues on 2026-10-20.
  * Auto selects an available route BEFORE submission, never after a paid call. */
-export type AIProvider = 'openai' | 'openrouter' | 'gemini' | 'fal' | 'evolink';
+export type AIProvider = 'openai' | 'openrouter' | 'agentrouter' | 'gemini' | 'fal' | 'evolink';
 export type ProviderChoice = AIProvider | 'auto';
 export const PROVIDER_LABELS: Record<AIProvider, string> = {
-  openai: 'OpenAI', openrouter: 'OpenRouter', gemini: 'Google Gemini', fal: 'fal.ai', evolink: 'EvoLink',
+  openai: 'OpenAI', openrouter: 'OpenRouter', agentrouter: 'AgentRouter', gemini: 'Google Gemini', fal: 'fal.ai', evolink: 'EvoLink',
 };
 export const PROVIDER_KEYS: Record<AIProvider, string> = {
-  openai: 'OPENAI_API_KEY', openrouter: 'OPENROUTER_API_KEY', gemini: 'GEMINI_API_KEY', fal: 'FAL_KEY', evolink: 'EVOLINK_API_KEY',
+  openai: 'OPENAI_API_KEY', openrouter: 'OPENROUTER_API_KEY', agentrouter: 'AGENTROUTER_API_KEY', gemini: 'GEMINI_API_KEY', fal: 'FAL_KEY', evolink: 'EVOLINK_API_KEY',
 };
 export const MODEL_ROUTES: Record<string, readonly AIProvider[]> = {
   'gpt-image-2.5-sunburst': ['openai', 'openrouter', 'fal'],
   'gemini-3-pro-image-preview': ['fal', 'gemini', 'openrouter'],
   'gemini-nano-banana-2.1': ['fal', 'gemini', 'openrouter'],
   'anthropic/claude-opus-5.5': ['openrouter'],
-  'gpt-6.1-sol': ['openai', 'openrouter'],
+  'gpt-5.6-sol': ['agentrouter'],
+  'gpt-6-astra': ['agentrouter'],
+  'gpt-6.1-sol': ['openai', 'openrouter', 'agentrouter'],
   'gemini-3.8-flash': ['gemini', 'openrouter'],
   'seedance-2.0': ['evolink', 'fal', 'openrouter'],
   'seedance-2.5': ['evolink', 'fal', 'openrouter'],

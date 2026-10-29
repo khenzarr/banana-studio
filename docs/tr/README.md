@@ -32,7 +32,7 @@ Brainstorm; brief'ini, seçtiğin People kayıtlarını ve referansların roller
 
 Kısa fikrini kendi cümlelerinle yaz. **Enhance**, seçili görsel veya video modeline uygun daha açık talimatlar hazırlar: kişi/nesne, kompozisyon, ışık, referans rolleri; videoda hareket ve zamanlama. Alan düzenleme içinde de çalışır. Sonucu kontrol et, kendin düzenle veya **Revert** ile ilk taslağına dön.
 
-Türkçe taslaklardan da üretim açıklamaları İngilizce hazırlanır; görselde görünmesini istediğin yazılar, özel isimler ve alıntılanan diyaloglar istenen dilde kalır. **AI settings** bölümünde **Opus 5.5, GPT-6.1 Sol veya Gemini 3.8 Flash** ve düşünme seviyesini seç. Başlangıç ayarı **Opus 5.5 / Medium**. Kayıt varsa kullanılan hazırlama modeli ve düşünme seviyesi detaylarda saklanır.
+Türkçe taslaklardan da üretim açıklamaları İngilizce hazırlanır; görselde görünmesini istediğin yazılar, özel isimler ve alıntılanan diyaloglar istenen dilde kalır. **AI settings** bölümünde **Opus 5.5, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol veya Gemini 3.8 Flash** ve düşünme seviyesini seç. Başlangıç ayarı **Opus 5.5 / Medium**. Kayıt varsa kullanılan hazırlama modeli ve düşünme seviyesi detaylarda saklanır.
 
 ## Bir alanı düzenle, geri kalanını koru
 
@@ -115,7 +115,8 @@ API anahtarı, uygulamanın ilgili yapay zekâ servisindeki hesabını kullanmas
 | GPT Image 2.5 — yeni görsel ve korumalı alan editi | OpenAI → OpenRouter → fal.ai | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `FAL_KEY` |
 | Nano Banana Pro / Nano Banana 2.1 | fal.ai → Google Gemini → OpenRouter | `FAL_KEY` / `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Claude Opus 5.5 — Enhance, Brainstorm, varyasyon ve yaratıcı brief | OpenRouter | `OPENROUTER_API_KEY` |
-| GPT-6.1 Sol — metin özellikleri | OpenAI → OpenRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` |
+| GPT-5.6 Sol / GPT-6 Astra — metin özellikleri | AgentRouter | `AGENTROUTER_API_KEY` |
+| GPT-6.1 Sol — metin özellikleri | OpenAI → OpenRouter → AgentRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `AGENTROUTER_API_KEY` |
 | Gemini 3.8 Flash — metin ve YouTube videosu analizi | Google Gemini → OpenRouter | `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Seedance 2.0 / 2.5 | EvoLink → fal.ai → OpenRouter (desteklenen işlemler) | `EVOLINK_API_KEY` / `FAL_KEY` / `OPENROUTER_API_KEY` |
 | MiniMax H3 Max — metin/görsel/referanstan video, uzatma, lip sync ve recast | fal.ai | `FAL_KEY` |

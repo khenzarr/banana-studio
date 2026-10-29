@@ -87,7 +87,7 @@ export const VIDEO_DURATION_OPTIONS: { label: string; value: VideoDuration }[] =
   }
 );
 
-export type TextModelId = 'gemini-3.8-flash' | 'gpt-6.1-sol' | 'anthropic/claude-opus-5.5';
+export type TextModelId = 'gemini-3.8-flash' | 'gpt-5.6-sol' | 'gpt-6-astra' | 'gpt-6.1-sol' | 'anthropic/claude-opus-5.5';
 
 export const TEXT_MODEL_OPTIONS: { label: string; value: TextModelId; description: string }[] = [
   {
@@ -101,9 +101,19 @@ export const TEXT_MODEL_OPTIONS: { label: string; value: TextModelId; descriptio
     description: 'Adjustable thinking · Medium by default. Enhance, brainstorm, and variations. Video brief extraction uses Low.',
   },
   {
+    label: 'GPT-5.6 Sol',
+    value: 'gpt-5.6-sol',
+    description: 'Via AgentRouter. Adjustable reasoning · High by default. Enhance, brainstorm, variations and evidence-based video briefs with image references.',
+  },
+  {
+    label: 'GPT-6 Astra',
+    value: 'gpt-6-astra',
+    description: 'Via AgentRouter. Adjustable reasoning · High by default. Enhance, brainstorm, variations and evidence-based video briefs with image references.',
+  },
+  {
     label: 'GPT-6.1 Sol',
     value: 'gpt-6.1-sol',
-    description: 'Adjustable reasoning · High by default. Enhance, brainstorm, variations and evidence-based video briefs with image references.',
+    description: 'Via OpenAI, OpenRouter or AgentRouter. Adjustable reasoning · High by default. Enhance, brainstorm, variations and evidence-based video briefs with image references.',
   },
 ];
 

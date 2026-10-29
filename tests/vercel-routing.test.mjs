@@ -20,7 +20,7 @@ const { default: handler } = await import('data:text/javascript;base64,' + Buffe
 const response = () => ({ code: 0, headers: {}, setHeader(k,v) { this.headers[k]=v; }, status(code) { this.code=code;return this; }, json(body) { this.body=body;return this; } });
 
 test('all public paths dispatch to their original handler and preserve request data', async () => {
-  assert.equal(routes.length, 18);
+  assert.equal(routes.length, 19);
   for (const route of routes) {
     for (const method of ['GET', 'POST', 'OPTIONS']) {
       const req = {url:`/api/${route}?route=fal-debug&taskId=synthetic`,method,query:{route:'fal-debug',taskId:'synthetic'},body:{prompt:'synthetic'}};

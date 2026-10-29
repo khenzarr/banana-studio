@@ -69,6 +69,7 @@ Ortam değişkeni, Vercel'in uygulamaya verdiği isimli bir ayardır. Kurulum ek
 | `CRON_SECRET` | Parola yöneticinle ürettiğin yeni rastgele sır; tercihen en az 32 karakter | Evet |
 | `OPENAI_API_KEY` | OpenAI anahtarı | GPT Image 2.5 ve/veya GPT-6.1 Sol için |
 | `OPENROUTER_API_KEY` | OpenRouter anahtarı | Başlangıç yaratıcı modeli Opus 5.5 için |
+| `AGENTROUTER_API_KEY` | AgentRouter anahtarı | GPT-5.6 Sol, GPT-6 Astra ve GPT-6.1 Sol metin görevleri için |
 | `GEMINI_API_KEY` | Google Gemini anahtarı | Gemini metin görevleri ve video analizi için |
 | `FAL_KEY` | fal.ai anahtarı | Nano Banana, H3 Max ve desteklenen video ön işlemleri için |
 | `EVOLINK_API_KEY` | EvoLink anahtarı | Seedance için |

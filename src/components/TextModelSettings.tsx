@@ -1,8 +1,8 @@
 import { isLocalWorkspace } from '../lib/config/runtimeConfig';
 import React, { useEffect, useState } from 'react';
 import { Cpu, Loader2 } from 'lucide-react';
-import { TEXT_MODEL_OPTIONS } from '../types';
-import { OPENAI_TEXT_MODEL, getTextModel, getOpenAIReasoningEffort, getGeminiThinkingLevel, GEMINI_THINKING_LEVELS, type GeminiThinkingLevel } from '../lib/prompts/textModels';
+import { TEXT_MODEL_OPTIONS, getTextModelLabel } from '../types';
+import { getTextModel, getOpenAIReasoningEffort, getGeminiThinkingLevel, GEMINI_THINKING_LEVELS, isReasoningTextModel, type GeminiThinkingLevel } from '../lib/prompts/textModels';
 import { DEFAULT_OPENAI_REASONING, OPENAI_REASONING_EFFORTS, type OpenAIReasoningEffort } from '../lib/prompts/openaiText';
 import { DEFAULT_OPENROUTER_REASONING, OPENROUTER_TEXT_MODEL, OPENROUTER_REASONING_EFFORTS } from '../lib/prompts/openrouterText';
 import { loadTextPreferences, saveTextPreferences, type SavedTextPreferences, type TextPreferenceScope } from '../services/textPreferencesService';
@@ -66,7 +66,7 @@ export const TextModelSettings: React.FC = () => {
           </label>
         ))}
       </div>
-      {selectedModel !== OPENAI_TEXT_MODEL && selectedModel !== OPENROUTER_TEXT_MODEL && (
+      {!isReasoningTextModel(selectedModel) && (
         <label className="mt-4 block text-sm text-gray-300">
           Gemini thinking
           <select aria-label="Gemini thinking" value={thinkingLevel}
@@ -77,10 +77,10 @@ export const TextModelSettings: React.FC = () => {
           <span className="mt-2 block text-xs leading-relaxed text-gray-500">Higher thinking gives complex briefs more reasoning time.</span>
         </label>
       )}
-      {(selectedModel === OPENAI_TEXT_MODEL || selectedModel === OPENROUTER_TEXT_MODEL) && (
+      {isReasoningTextModel(selectedModel) && (
         <label className="mt-4 block text-sm text-gray-300">
-          {selectedModel === OPENROUTER_TEXT_MODEL ? 'Opus 5.5 thinking' : 'GPT-6.1 Sol reasoning'}
-          <select aria-label={selectedModel === OPENROUTER_TEXT_MODEL ? 'Opus 5.5 thinking' : 'GPT-6.1 Sol reasoning'} value={reasoningEffort}
+          {selectedModel === OPENROUTER_TEXT_MODEL ? 'Opus 5.5 thinking' : `${getTextModelLabel(selectedModel)} reasoning`}
+          <select aria-label={selectedModel === OPENROUTER_TEXT_MODEL ? 'Opus 5.5 thinking' : `${getTextModelLabel(selectedModel)} reasoning`} value={reasoningEffort}
             onChange={event => { setReasoningEffort(event.target.value as OpenAIReasoningEffort); changed(); }}
             className="mt-2 block w-full rounded-xl border border-gray-700 bg-gray-900 p-3 text-base sm:text-sm text-white outline-none focus:border-violet-400">
             {(selectedModel === OPENROUTER_TEXT_MODEL ? OPENROUTER_REASONING_EFFORTS : OPENAI_REASONING_EFFORTS).map(value => <option key={value} value={value}>{({ low: 'Low', medium: 'Medium', high: 'High', xhigh: 'Extra high', max: 'Max' })[value]}{value === (selectedModel === OPENROUTER_TEXT_MODEL ? DEFAULT_OPENROUTER_REASONING : DEFAULT_OPENAI_REASONING) ? ' · Default' : ''}</option>)}

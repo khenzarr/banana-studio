@@ -34,7 +34,7 @@ Brainstorm uses your brief, selected People and the roles of your references. Fo
 
 Write a short draft in your own words. **Enhance** prepares more specific instructions for the chosen image or video model: subject, composition, lighting, reference roles and, for video, motion and timing. It also works inside the area editor. Review the result, adjust it yourself or use **Revert** to restore the original draft.
 
-Production descriptions are prepared in English even from a Turkish draft; requested visible text, names and quoted dialogue keep their intended language. Select **Opus 5.5, GPT-6.1 Sol or Gemini 3.8 Flash** and the thinking level in **AI settings**. The initial creative setting is **Opus 5.5 / Medium**. Details retain the preparation model and reasoning level when recorded.
+Production descriptions are prepared in English even from a Turkish draft; requested visible text, names and quoted dialogue keep their intended language. Select **Opus 5.5, GPT-5.6 Sol, GPT-6 Astra, GPT-6.1 Sol or Gemini 3.8 Flash** and the thinking level in **AI settings**. The initial creative setting is **Opus 5.5 / Medium**. Details retain the preparation model and reasoning level when recorded.
 
 ## Edit an area, keep the rest
 
@@ -117,7 +117,8 @@ An API key is a private credential that lets the app use your account with an AI
 | GPT Image 2.5 — new images and protected area edits | OpenAI → OpenRouter → fal.ai | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `FAL_KEY` |
 | Nano Banana Pro / Nano Banana 2.1 | fal.ai → Google Gemini → OpenRouter | `FAL_KEY` / `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Claude Opus 5.5 — Enhance, Brainstorm, variations and creative briefs | OpenRouter | `OPENROUTER_API_KEY` |
-| GPT-6.1 Sol — text features | OpenAI → OpenRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` |
+| GPT-5.6 Sol / GPT-6 Astra — text features | AgentRouter | `AGENTROUTER_API_KEY` |
+| GPT-6.1 Sol — text features | OpenAI → OpenRouter → AgentRouter | `OPENAI_API_KEY` / `OPENROUTER_API_KEY` / `AGENTROUTER_API_KEY` |
 | Gemini 3.8 Flash — text and YouTube footage analysis | Google Gemini → OpenRouter | `GEMINI_API_KEY` / `OPENROUTER_API_KEY` |
 | Seedance 2.0 / 2.5 | EvoLink → fal.ai → OpenRouter (supported modes) | `EVOLINK_API_KEY` / `FAL_KEY` / `OPENROUTER_API_KEY` |
 | MiniMax H3 Max — text/image/reference to video, extend, lip sync and recast | fal.ai | `FAL_KEY` |

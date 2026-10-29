@@ -3,6 +3,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 // Literal imports let Vercel trace every dependency without loading every
 // provider SDK on requests that only need workspace configuration.
 const routes = {
+  'agentrouter-text-generate': () => import('./_agentrouter-text-generate.js'),
   'evolink-generate': () => import('./_evolink-generate.js'),
   'evolink-status': () => import('./_evolink-status.js'),
   'fal-debug': () => import('./_fal-debug.js'),
